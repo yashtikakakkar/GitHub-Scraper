@@ -12,7 +12,7 @@ request("https://github.com/topics", callback);
 //After response from first request is provided this function runs.
 //This function creates a manipulationTool with the html in the response
 //Then it finds the topic names and their url.
-//After that it calls topicProcessor function and give them topicName and its url
+//After that it calls projectProcessor function and give them topicName and its url
 function callback (error, response, html) {
     if (!error)
     {
@@ -34,7 +34,7 @@ function callback (error, response, html) {
 //This function sends a request to a topic url and create a manipulationTool with cheerio and html provided in the response from topic page request
 //Then it finds all heading where the project names are mentioned
 //From those headings it gets the required project name and its url of top 5 projects, then it stores the project name in global data object
-//Also it calls the function projectProcessor and passes the project url to it along with topic and project name
+//Also it calls the function issueProcessor and passes the project url to it along with topic and project name
 function projectProcessor(topic, link) {
 
     request(link, nextCallback);
@@ -69,8 +69,8 @@ function projectProcessor(topic, link) {
 
 }
 
-//This function sends a request to a given project issues page by adding /issues to given project url
-// Like all the above functions it also create a manipulation tool with help of response html
+//This function sends a request to a given project issues page by adding "/issues" to given project url
+//Like all the above functions it also create a manipulation tool with help of response html
 //Using that tool it select all the issues. Then get the top 5 issues from it. For a particular issue it fetches its heading and its url. Saves the heading and url to the appropriate project object in the global data object
 //finally creates a json file after updating the global object
 function issueProcessor(topic,projectName,issuesLink) {
@@ -91,9 +91,9 @@ function issueProcessor(topic,projectName,issuesLink) {
             // Then  we use this index together with topic array to insert the issues in the required project object.
 
 
-            //data[topicName]  => this is topic array 
-            //data[topicName][index] => this is project object whose issues we are scrapping
-            //data[topicName][index].issues => here we are accessing issues key in a project object, which is an element in topic array
+            //data[topic]  => this is topic array 
+            //data[topic][index] => this is project object whose issues we are scrapping
+            //data[topic][index].issues => here we are accessing issues key in a project object, which is an element in topic array
 
             let index = -1;
             for (let j=0; j<data[topic].length; j++)
