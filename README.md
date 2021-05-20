@@ -4,10 +4,10 @@ This project will get the top 5 issues from the top 5 projects on the top 3 topi
 
 Prerequisites:
 - cheerio package <br>
-``` npm i cheerio ```
+``` $ npm i cheerio ```
 - request package <br>
-``` npm i request ```
+``` $ npm i request ```
 - fs package <br>
-``` npm i fs ```
+``` $ npm i fs ```
 
 Happy coding!
